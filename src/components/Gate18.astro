@@ -40,5 +40,28 @@
       </div>
     </div>
   </div>
-  <script is:inline src="/gate18.js"></script>
 </div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('gate18-modal');
+    const yesBtn = document.getElementById('gate18-yes');
+    const noBtn = document.getElementById('gate18-no');
+    
+    // Check if user has already verified
+    if (localStorage.getItem('ageVerified') === 'true') {
+      modal.style.display = 'none';
+    }
+    
+    // Yes button - hide modal and save verification
+    yesBtn.addEventListener('click', function() {
+      localStorage.setItem('ageVerified', 'true');
+      modal.style.display = 'none';
+    });
+    
+    // No button - redirect to safe site
+    noBtn.addEventListener('click', function() {
+      window.location.href = 'https://www.youtube.com/@Agustin5111';
+    });
+  });
+</script>
