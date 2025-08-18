@@ -1,0 +1,22 @@
+<div id="aviso-banner" class="fixed top-0 left-0 w-full z-40 bg-red text-white text-center py-2 text-sm shadow-md transition-all duration-500">
+  Aviso: Esta página es de afiliados. +18 | No nos hacemos responsables de depósitos ni pérdidas económicas. Juega con responsabilidad.
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const avisoBanner = document.getElementById('aviso-banner');
+    
+    // Ocultar el aviso después de 3 segundos
+    setTimeout(() => {
+      if (avisoBanner) {
+        avisoBanner.style.transform = 'translateY(-100%)';
+        avisoBanner.style.opacity = '0';
+        
+        // Remover completamente del DOM después de la animación
+        setTimeout(() => {
+          avisoBanner.remove();
+        }, 500);
+      }
+    }, 3000);
+  });
+</script>

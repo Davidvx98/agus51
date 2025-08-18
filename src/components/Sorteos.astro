@@ -1,0 +1,90 @@
+---
+import WeaponIcon from './WeaponIcon.astro';
+
+const sorteos = [
+  { 
+    nombre: 'Karambit Doppler', 
+    type: 'karambit',
+    descripcion: 'Código permanente de Agustin51 - ¡No expira nunca!',
+    bonus: 'AGUSTIN51',
+    usos: 'PERMANENTE',
+    regla: '1€ = 1 Participación sorteo',
+    enlace: 'https://skin.club/es/promo/AGUSTIN51'
+  },
+  { 
+    nombre: 'M9 Bayonet Lore', 
+    type: 'm9',
+    descripcion: 'Código permanente de Agustin51 - ¡No expira nunca!',
+    bonus: 'AGUSTIN51',
+    usos: 'PERMANENTE',
+    regla: '1€ = 1 Participación sorteo',
+    enlace: 'https://skin.club/es/promo/AGUSTIN51'
+  },
+  { 
+    nombre: 'Butterfly Knife Fade', 
+    type: 'butterfly',
+    descripcion: 'Código permanente de Agustin51 - ¡No expira nunca!',
+    bonus: 'AGUSTIN51',
+    usos: 'PERMANENTE',
+    regla: '1€ = 1 Participación sorteo',
+    enlace: 'https://skin.club/es/promo/AGUSTIN51'
+  },
+];
+---
+<section class="py-16 px-4 max-w-7xl mx-auto">
+  <div class="text-center mb-12">
+    <h2 class="text-4xl font-black bg-gradient-to-r from-red via-red-400 to-red-600 bg-clip-text text-transparent mb-4">🎁 Sorteos Activos</h2>
+    <p class="text-xl text-gray-300">Participa en los sorteos más épicos con skins reales</p>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {sorteos.map((s, index) => (
+      <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-800 via-slate-900 to-black shadow-2xl hover:shadow-red/25 transition-all duration-500 hover:scale-105">
+        {/* Animated border */}
+        <div class="absolute inset-0 bg-gradient-to-r from-red via-gold to-red opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl blur-sm"></div>
+        <div class="absolute inset-[1px] bg-slate-900 rounded-2xl"></div>
+        
+        <div class="relative p-6">
+          {/* Status badge */}
+          <div class="absolute top-4 right-4 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+            ♾️ PERMANENTE
+          </div>
+          
+          {/* Weapon Icon */}
+          <div class="relative mb-6 flex justify-center">
+            <WeaponIcon name={s.nombre} type={s.type} className="w-32 h-32" />
+          </div>
+          
+          {/* Bonus Info */}
+          <div class="flex justify-between items-center mb-4 text-sm">
+            <div class="bg-gold/10 px-3 py-1 rounded-full border border-gold/30">
+              <span class="text-gold font-bold">{s.bonus}</span>
+            </div>
+            <div class="bg-green-500/10 px-3 py-1 rounded-full border border-green-500/30">
+              <span class="text-green-400 font-bold">{s.usos}</span>
+            </div>
+          </div>
+          
+          {/* Title */}
+          <h3 class="text-2xl font-bold text-white mb-3 text-center">{s.nombre}</h3>
+          
+          {/* Rules */}
+          <div class="bg-slate-800/50 border border-gold/20 rounded-lg p-4 mb-4">
+            <div class="text-center mb-3">
+              <div class="text-gold font-bold text-lg mb-1">{s.regla}</div>
+            </div>
+            <p class="text-gray-300 text-sm text-center leading-relaxed">{s.descripcion}</p>
+          </div>
+          
+          {/* Participate button */}
+          <a href={s.enlace} target="_blank" rel="noopener" class="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/50 flex items-center justify-center gap-2 text-lg">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Usar AGUSTIN51
+          </a>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Gate18 from '../components/Gate18.astro';
+import Aviso from '../components/Aviso.astro';
+import Hero from '../components/Hero.astro';
+import Codigos from '../components/Codigos.astro';
+import CodigosPromocionales from '../components/CodigosPromocionales.astro';
+import Sorteos from '../components/Sorteos.astro';
+import FAQ from '../components/FAQ.astro';
+import Video from '../components/Video.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Agustin51 x SkinClub - Colaboración Oficial">
+	<Gate18 />
+	<Navigation />
+	<Aviso />
+	<section id="hero">
+		<Hero />
+	</section>
+	<section id="codigos">
+		<Codigos />
+	</section>
+	<section id="promocionales">
+		<CodigosPromocionales />
+	</section>
+	<section id="sorteos">
+		<Sorteos />
+	</section>
+	<section id="video">
+		<Video />
+	</section>
+	<section id="faq">
+		<FAQ />
+	</section>
+	<Footer />
+</Layout>

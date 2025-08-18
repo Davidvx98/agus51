@@ -1,0 +1,147 @@
+---
+const codigosPromocionales = [
+  {
+    codigo: 'AGUSTIN511V',
+    enlace: 'https://l.skin.club/825AGUSTIN511V',
+    bonus: '7%',
+    tipo: 'Premium',
+    descripcion: 'Código exclusivo para seguidores VIP'
+  },
+  {
+    codigo: 'AGUSTIN512V', 
+    enlace: 'https://l.skin.club/825AGUSTIN512V',
+    bonus: '5%',
+    tipo: 'Estándar',
+    descripcion: 'Código promocional especial'
+  },
+  {
+    codigo: 'AGUSTIN513V',
+    enlace: 'https://l.skin.club/825AGUSTIN513V', 
+    bonus: '6%',
+    tipo: 'Deluxe',
+    descripcion: 'Código con bonus mejorado'
+  },
+  {
+    codigo: 'AGUSTIN514V',
+    enlace: 'https://l.skin.club/825AGUSTIN514V',
+    bonus: '4%', 
+    tipo: 'Básico',
+    descripcion: 'Código de entrada perfecto'
+  },
+  {
+    codigo: 'AGUSTIN515V',
+    enlace: 'https://l.skin.club/825AGUSTIN515V',
+    bonus: '8%',
+    tipo: 'Elite',
+    descripcion: 'El mejor código disponible'
+  },
+  {
+    codigo: 'AGUSTIN516V',
+    enlace: 'https://l.skin.club/825AGUSTIN516V',
+    bonus: '5%',
+    tipo: 'Especial',
+    descripcion: 'Código de edición limitada'
+  }
+];
+
+const getTipoColor = (tipo: string) => {
+  const colores: { [key: string]: string } = {
+    'Premium': 'from-purple-500 to-purple-600',
+    'Estándar': 'from-blue-500 to-blue-600', 
+    'Deluxe': 'from-green-500 to-green-600',
+    'Básico': 'from-gray-500 to-gray-600',
+    'Elite': 'from-red-500 to-red-600',
+    'Especial': 'from-gold to-yellow-500'
+  };
+  return colores[tipo] || 'from-gray-500 to-gray-600';
+};
+---
+
+<section class="py-16 px-4 max-w-7xl mx-auto">
+  <div class="text-center mb-12">
+    <h2 class="text-4xl font-black bg-gradient-to-r from-gold via-yellow-400 to-gold bg-clip-text text-transparent mb-4">🎯 Códigos Promocionales</h2>
+    <p class="text-xl text-gray-300">Todos los códigos exclusivos de Agustin51 x SkinClub</p>
+    <div class="mt-4 bg-gold/10 border border-gold/30 rounded-lg p-4 max-w-2xl mx-auto">
+      <p class="text-gold font-bold">💡 1€ = 1 Participación sorteo</p>
+      <p class="text-gray-300 text-sm mt-1">El bonus expira después de los usos máximos. Los usos son por participante.</p>
+    </div>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {codigosPromocionales.map((codigo, index) => (
+      <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-800 via-slate-900 to-black shadow-2xl hover:shadow-gold/25 transition-all duration-500 hover:scale-105">
+        {/* Animated border */}
+        <div class="absolute inset-0 bg-gradient-to-r from-gold via-yellow-400 to-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl blur-sm"></div>
+        <div class="absolute inset-[1px] bg-slate-900 rounded-2xl"></div>
+        
+        <div class="relative p-6">
+          {/* Tipo badge */}
+          <div class={`absolute top-4 right-4 bg-gradient-to-r ${getTipoColor(codigo.tipo)} text-white px-3 py-1 rounded-full text-xs font-bold`}>
+            {codigo.tipo}
+          </div>
+          
+          {/* Código principal */}
+          <div class="text-center mb-6">
+            <div class="bg-black/50 border-2 border-gold/50 rounded-xl p-4 mb-4">
+              <div class="text-2xl font-black text-gold mb-2">{codigo.codigo}</div>
+              <div class="text-sm text-gray-400">Código Promocional</div>
+            </div>
+          </div>
+          
+          {/* Bonus info */}
+          <div class="flex justify-center mb-4">
+            <div class="bg-gold/10 px-4 py-2 rounded-full border border-gold/30">
+              <span class="text-gold font-bold text-lg">BONUS {codigo.bonus}</span>
+            </div>
+          </div>
+          
+          {/* Description */}
+          <p class="text-gray-300 text-center text-sm mb-6 leading-relaxed">{codigo.descripcion}</p>
+          
+          {/* Usar código button */}
+          <a href={codigo.enlace} target="_blank" rel="noopener" class="w-full bg-gradient-to-r from-gold to-yellow-400 hover:from-yellow-400 hover:to-gold text-black font-bold py-3 px-6 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-gold/50 flex items-center justify-center gap-2">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clip-rule="evenodd"/>
+            </svg>
+            Usar Código
+          </a>
+          
+          {/* Copy button */}
+          <button onclick={`navigator.clipboard.writeText('${codigo.codigo}'); this.innerHTML='<svg class="w-4 h-4 mx-auto" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Copiado!'; setTimeout(() => this.innerHTML='<svg class="w-4 h-4 mx-auto" fill="currentColor" viewBox="0 0 20 20"><path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"></path><path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z"></path></svg> Copiar Código', 2000)`} class="w-full mt-2 bg-slate-700 hover:bg-slate-600 text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 text-sm flex items-center justify-center gap-1">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"></path>
+              <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z"></path>
+            </svg>
+            Copiar Código
+          </button>
+        </div>
+      </div>
+    ))}
+  </div>
+  
+  {/* Info adicional */}
+  <div class="mt-12 bg-gradient-to-r from-slate-800 to-slate-900 border border-gold/20 rounded-2xl p-8 text-center">
+    <h3 class="text-2xl font-bold text-white mb-4">🔥 ¡Aprovecha Todos los Códigos!</h3>
+    <p class="text-gray-300 mb-6 leading-relaxed max-w-3xl mx-auto">
+      Cada código tiene diferentes bonuses y características. Puedes usar todos para maximizar tus ganancias en SkinClub. 
+      Recuerda que cada código tiene un límite de usos por participante.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4 text-sm">
+      <div class="bg-gold/10 border border-gold/30 px-4 py-2 rounded-full">
+        <span class="text-gold font-bold">✅ Todos los códigos verificados</span>
+      </div>
+      <div class="bg-green-500/10 border border-green-500/30 px-4 py-2 rounded-full">
+        <span class="text-green-400 font-bold">🎯 Actualizados diariamente</span>
+      </div>
+      <div class="bg-blue-500/10 border border-blue-500/30 px-4 py-2 rounded-full">
+        <span class="text-blue-400 font-bold">🚀 Enlaces directos</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  button:hover {
+    transform: translateY(-1px);
+  }
+</style>

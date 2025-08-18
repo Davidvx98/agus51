@@ -1,0 +1,44 @@
+<div id="gate18-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm">
+  <div class="relative bg-gradient-to-br from-slate-800 via-slate-900 to-black rounded-2xl p-8 shadow-2xl text-center max-w-md w-full mx-4 border border-gold/30">
+    {/* Glow effect */}
+    <div class="absolute -inset-2 bg-gradient-to-r from-gold via-red to-gold rounded-2xl opacity-20 blur-xl"></div>
+    
+    <div class="relative">
+      {/* Warning icon */}
+      <div class="text-6xl mb-4 animate-bounce">⚠️</div>
+      
+      {/* Title */}
+      <h2 class="text-3xl font-black bg-gradient-to-r from-gold via-yellow-400 to-gold bg-clip-text text-transparent mb-2">
+        Verificación de Edad
+      </h2>
+      
+      {/* Subtitle */}
+      <p class="text-lg text-gray-300 mb-6">¿Eres mayor de 18 años?</p>
+      
+      {/* Warning text */}
+      <div class="bg-red/10 border border-red/30 rounded-lg p-4 mb-6">
+        <p class="text-red text-sm">
+          <strong>Advertencia:</strong> Este sitio contiene contenido relacionado con juegos de apuestas. 
+          Solo para mayores de edad.
+        </p>
+      </div>
+      
+      {/* Buttons */}
+      <div class="flex gap-4 justify-center">
+        <button id="gate18-yes" class="group relative bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold px-8 py-3 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-green-500/50 flex items-center gap-2">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+          </svg>
+          Sí, soy mayor de 18
+        </button>
+        <button id="gate18-no" class="group relative bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold px-8 py-3 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-red-500/50 flex items-center gap-2">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+          </svg>
+          No, soy menor de 18
+        </button>
+      </div>
+    </div>
+  </div>
+  <script is:inline src="/gate18.js"></script>
+</div>

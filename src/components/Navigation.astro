@@ -1,0 +1,118 @@
+---
+---
+<nav class="fixed top-0 left-0 right-0 z-40 bg-black/20 backdrop-blur-md border-b border-gold/20">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
+      {/* Logo */}
+      <div class="flex items-center gap-3">
+        <img src="https://51agustin.com/manitas.png" alt="Logo" class="w-10 h-10">
+        <span class="text-xl font-bold bg-gradient-to-r from-gold to-yellow-400 bg-clip-text text-transparent">
+          Agustin51 x SkinClub
+        </span>
+      </div>
+
+      {/* Desktop Navigation */}
+      <div class="hidden md:flex items-center space-x-6">
+        <a href="#hero" class="nav-link text-white hover:text-gold transition-colors duration-200 font-medium">Inicio</a>
+        <a href="#codigos" class="nav-link text-white hover:text-gold transition-colors duration-200 font-medium">Códigos</a>
+        <a href="#promocionales" class="nav-link text-white hover:text-gold transition-colors duration-200 font-medium">Promociones</a>
+        <a href="#sorteos" class="nav-link text-white hover:text-gold transition-colors duration-200 font-medium">Sorteos</a>
+        <a href="#video" class="nav-link text-white hover:text-gold transition-colors duration-200 font-medium">Video</a>
+        <a href="#faq" class="nav-link text-white hover:text-gold transition-colors duration-200 font-medium">FAQ</a>
+        
+        {/* CTA Button */}
+        <a href="https://skin.club/es/promo/AGUSTIN51" target="_blank" rel="noopener" 
+           class="bg-gradient-to-r from-gold to-yellow-400 text-black font-bold px-4 py-2 rounded-lg hover:scale-105 transition-all duration-200 text-sm">
+          Jugar Ahora
+        </a>
+      </div>
+
+      {/* Mobile menu button */}
+      <button id="mobile-menu-btn" class="md:hidden text-white hover:text-gold transition-colors duration-200">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    {/* Mobile Navigation */}
+    <div id="mobile-menu" class="md:hidden hidden bg-black/90 backdrop-blur-md border-t border-gold/20 mt-2 rounded-lg">
+      <div class="px-4 py-4 space-y-3">
+        <a href="#hero" class="block text-white hover:text-gold transition-colors duration-200 font-medium py-2">Inicio</a>
+        <a href="#codigos" class="block text-white hover:text-gold transition-colors duration-200 font-medium py-2">Códigos</a>
+        <a href="#promocionales" class="block text-white hover:text-gold transition-colors duration-200 font-medium py-2">Promociones</a>
+        <a href="#sorteos" class="block text-white hover:text-gold transition-colors duration-200 font-medium py-2">Sorteos</a>
+        <a href="#video" class="block text-white hover:text-gold transition-colors duration-200 font-medium py-2">Video</a>
+        <a href="#faq" class="block text-white hover:text-gold transition-colors duration-200 font-medium py-2">FAQ</a>
+        <div class="pt-3 border-t border-gray-700">
+          <a href="https://skin.club/es/promo/AGUSTIN51" target="_blank" rel="noopener" 
+             class="block bg-gradient-to-r from-gold to-yellow-400 text-black font-bold px-4 py-3 rounded-lg text-center hover:scale-105 transition-all duration-200">
+            Jugar Ahora
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn?.addEventListener('click', function() {
+      mobileMenu?.classList.toggle('hidden');
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('.nav-link, a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(e: Event) {
+        const target = e.target as HTMLAnchorElement;
+        const href = target.getAttribute('href');
+        if (href?.startsWith('#')) {
+          e.preventDefault();
+          const targetSection = document.querySelector(href);
+          if (targetSection) {
+            targetSection.scrollIntoView({ 
+              behavior: 'smooth',
+              block: 'start'
+            });
+            // Close mobile menu if open
+            mobileMenu?.classList.add('hidden');
+          }
+        }
+      });
+    });
+
+    // Active nav link highlighting
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const htmlSection = section as HTMLElement;
+        const sectionTop = htmlSection.offsetTop - 100;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id') || '';
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('text-gold');
+        link.classList.add('text-white');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.remove('text-white');
+          link.classList.add('text-gold');
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  nav {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+</style>

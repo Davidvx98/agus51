@@ -1,0 +1,62 @@
+---
+const codigos = [
+  { codigo: 'AGUSTIN51', destacado: true, url: 'https://skin.club/es/promo/AGUSTIN51', descripcion: 'Código principal de Agustín51. ¡Usa este código para obtener bonificaciones exclusivas!', descuento: '25% EXTRA' },
+  { codigo: 'TEMPORAL2025', destacado: false, url: 'https://skin.club/es/promo/TEMPORAL2025', descripcion: 'Código temporal para eventos especiales.', descuento: '15% BONUS' },
+  { codigo: 'VIP51', destacado: false, url: 'https://skin.club/es/promo/VIP51', descripcion: 'Código VIP para suscriptores del canal.', descuento: '20% OFF' },
+];
+---
+<section class="py-16 px-4 max-w-7xl mx-auto">
+  <div class="text-center mb-12">
+    <h2 class="text-4xl font-black bg-gradient-to-r from-gold via-yellow-400 to-gold bg-clip-text text-transparent mb-4">Códigos Exclusivos</h2>
+    <p class="text-xl text-gray-300">Usa estos códigos y obtén ventajas únicas en SkinClub</p>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {codigos.map((c, index) => (
+      <div class={`group relative overflow-hidden rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300 ${c.destacado ? 'ring-2 ring-gold' : ''}`}>
+        {/* Background gradient */}
+        <div class={`absolute inset-0 bg-gradient-to-br ${c.destacado ? 'from-gold/20 via-yellow-500/10 to-red/20' : 'from-red/15 via-purple-500/10 to-slate-800/50'} opacity-80`}></div>
+        
+        {/* Glow effect */}
+        <div class={`absolute -inset-1 bg-gradient-to-r ${c.destacado ? 'from-gold via-yellow-400 to-gold' : 'from-red via-purple-500 to-red'} rounded-2xl opacity-20 group-hover:opacity-40 blur transition duration-300`}></div>
+        
+        <div class="relative bg-slate-800/90 backdrop-blur-sm p-8 h-full flex flex-col">
+          {/* Badge */}
+          {c.destacado && (
+            <div class="absolute -top-2 -right-2 bg-gradient-to-r from-gold to-yellow-400 text-black px-4 py-1 rounded-full text-sm font-bold">
+              ⭐ DESTACADO
+            </div>
+          )}
+          
+          {/* Discount badge */}
+          <div class="bg-red text-white px-3 py-1 rounded-full text-sm font-bold w-fit mb-4">
+            {c.descuento}
+          </div>
+          
+          {/* Code display */}
+          <div class="text-center mb-6">
+            <span class="text-sm text-gray-400 uppercase tracking-wide">Código:</span>
+            <div class={`text-3xl font-black mt-2 ${c.destacado ? 'text-gold' : 'text-white'} font-mono bg-slate-900/50 py-3 px-4 rounded-lg border-2 border-dashed ${c.destacado ? 'border-gold/50' : 'border-gray-600'}`}>
+              {c.codigo}
+            </div>
+          </div>
+          
+          {/* Description */}
+          <p class="text-gray-300 text-center mb-6 flex-grow leading-relaxed">{c.descripcion}</p>
+          
+          {/* CTA Button */}
+          <a href={c.url} target="_blank" rel="noopener" class={`group/btn relative inline-flex items-center justify-center gap-2 font-bold px-6 py-3 rounded-xl transition-all duration-300 ${c.destacado ? 'bg-gradient-to-r from-gold to-yellow-400 text-black hover:shadow-2xl hover:shadow-gold/50' : 'bg-gradient-to-r from-red to-red-600 text-white hover:shadow-2xl hover:shadow-red/50'} hover:scale-105`}>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+              <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
+            </svg>
+            Usar Código Ahora
+            <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
