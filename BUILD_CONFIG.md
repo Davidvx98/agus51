@@ -1,20 +1,26 @@
-# Cloudflare Pages Build Configuration
+# 🚀 Configuración para Cloudflare Pages
 
-# Build command
-Build command: npm run build
+## Configuración en Cloudflare Dashboard:
 
-# Build output directory  
-Build output directory: dist
+### ⚙️ Build Settings:
+- **Framework preset**: `Astro`
+- **Build command**: `npm run build`
+- **Build output directory**: `dist`
+- **Root directory**: `/` (dejar en blanco o poner `/`)
 
-# Root directory
-Root directory: /
+### 🔧 Environment Variables:
+- **NODE_VERSION**: `18`
+- **NPM_FLAGS**: `--production=false`
 
-# Environment variables
-NODE_VERSION=18
-NPM_FLAGS=--production=false
+### 📝 Pasos para configurar:
+1. Ve a Cloudflare Pages Dashboard
+2. Conecta tu repositorio GitHub: `Davidvx98/agus51`
+3. Selecciona el framework preset: **Astro**
+4. Las configuraciones se aplicarán automáticamente
+5. Si no, usa la configuración manual arriba
 
-# Framework preset
-Framework preset: Astro
-
-# Node.js version
-Node.js version: 18
+### ✅ Verificaciones:
+- ✅ Proyecto es 100% estático (sin SSR)
+- ✅ No usa Cloudflare Workers
+- ✅ Compatible con Astro v5+
+- ✅ Build funciona correctamente en local
